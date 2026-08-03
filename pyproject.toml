@@ -73,37 +73,9 @@ exclude = [
 
 [tool.ruff.lint]
 select = [
-    "E",    # pycodestyle errors
-    "W",    # pycodestyle warnings
-    "F",    # Pyflakes
-    "I",    # isort
-    "N",    # pep8-naming
-    "UP",   # pyupgrade
-    "B",    # flake8-bugbear
-    "C4",   # flake8-comprehensions
-    "SIM",  # flake8-simplify
-    "RET",  # flake8-return
-    "ARG",  # flake8-unused-arguments
-    "PTH",  # flake8-use-pathlib
-    "ERA",  # eradicate (commented-out code)
-    "PL",   # pylint
-    "RUF",  # Ruff-specific rules
-
-    "A",    # flake8-builtins
-    "ANN",  # flake8-annotations
-    "C90",  # mccabe complexity
-    "DTZ",  # flake8-datetimez
-    "EM",   # flake8-errmsg
-    "G",    # flake8-logging-format
-    "LOG",  # flake8-logging
-    "PIE",  # flake8-pie
-    "PYI",  # flake8-pyi
-    "Q",    # flake8-quotes
-    "RSE",  # flake8-raise
-    "SLF",  # flake8-self
-    "T10",  # flake8-debugger
-    "T20",  # flake8-print
-    "TRY",  # tryceratops
+    "E4", "E7", "E9", "F", "I", "UP",
+    "PLC", # Pylint Convention
+    "PLR", # Pylint Refactor
 ]
 
 ignore = [
@@ -113,11 +85,21 @@ ignore = [
     "S101",    # Use of assert
     "T201",    # print
     "RUF012",  # mutable class attributes
+    "ANN101",  # Missing type annotation for self
+    "ANN102",  # Missing type annotation for cls
+    "ANN001",  # Missing type annotation for function argument
+    "C901",    # function is too complex
+    "PLR0913", # too many arguments
+    "PLR0912", # too many branches
+    "PLR0915", # too many statements
+    "PLR0917", # too many positional arguments
+    "SIM105",  # use contextlib.suppress
+    "ANN401",  # dynamically typed expressions (Any)
+    "PLC0415", # import should be at the top-level of a file (важно для ленивых импортов)
 ]
 
 fixable = ["ALL"]
 unfixable = []
-
 
 
 [tool.ruff.lint.isort]
