@@ -47,6 +47,11 @@ mattersim = [
     "phononsml[dev]",
 ]
 
+upet = [
+    "upet>=0.2.6",
+    "phononsml[dev]",
+]
+
 [tool.hatch.build.targets.sdist]
 exclude = [
     "/.github",
