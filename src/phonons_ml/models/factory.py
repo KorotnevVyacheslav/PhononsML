@@ -50,6 +50,10 @@ class ModelETLFactoryConfig:
                 from phonons_ml.models.implementations.mace import ModelConfigMACE
 
                 model_config = ModelConfigMACE.from_dict(raw_config)  # type: ignore[arg-type]
+            case "upet":
+                from phonons_ml.models.implementations.upet import ModelConfigUPET
+
+                model_config = ModelConfigUPET.from_dict(raw_config)  # type: ignore[arg-type]
             case _:
                 raise ValueError(f"Unknown model name: {model_name}")
 
@@ -85,5 +89,9 @@ class ModelETLFactory:
                 from phonons_ml.models.implementations.mace import ModelMACE
 
                 return ModelMACE(config.model_config)
+            case "upet":
+                from phonons_ml.models.implementations.upet import ModelUPET
+
+                return ModelUPET(config.model_config)
             case _:
                 raise ValueError(f"Unknown model name: {config.model_name}")
