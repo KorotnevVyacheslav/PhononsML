@@ -15,7 +15,7 @@ KB_EV = 8.617333262145e-5
 MAX_OMEGA = 1.5
 LOW_SCORE = 0.4
 HIGH_SCORE = 0.7
-DELTA_E = 0.1  # 100 meV heuristic barrier
+DELTA_E_HEURISTIC = 0.1  # 100 meV heuristic barrier
 
 
 @dataclass(slots=True)
@@ -212,7 +212,7 @@ class ThermodynamicAnalyzer:
             criteria["distortion_energy_meV"] = delta_E * 1000.0
             if delta_E < kT_ev:
                 criteria["distortion_criterion"] = "thermal_accessible"
-            elif delta_E < DELTA_E:  # 100 meV heuristic barrier
+            elif delta_E < DELTA_E_HEURISTIC:  # 100 meV heuristic barrier
                 criteria["distortion_criterion"] = "metastable"
             else:
                 criteria["distortion_criterion"] = "unstable"

@@ -98,9 +98,9 @@ class PipelineSingle(PipelineBase):
 
         summary = self.thermo_analyzer.get_summary()
 
-        self.thermo_analyzer.config.output_dir = (
-            f"data/results/{self.config.material_id}"
-        )
+        # self.thermo_analyzer.config.output_dir = (
+        #     f"data/results_{self.config.model_config.model_name}/{self.config.material_id}"
+        # )
 
         self.thermo_analyzer.save_all()
 
